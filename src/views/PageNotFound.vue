@@ -1,17 +1,17 @@
 <template>
-  <div>
-    Halaman
-    <code>{{ path }}</code> Tidak Ditemukan
-  </div>
+    <div>
+        Halaman
+        <code>{{ path }}</code> Tidak Ditemukan
+    </div>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      path: this.$route.path
-    };
-  }
+    data() {
+        return {
+            path: this.$route.path
+        };
+    }
 };
 </script>
 
