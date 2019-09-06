@@ -18,17 +18,26 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 library.add(fas);
 Vue.component('fa', FontAwesomeIcon);
 
+import VueMobileDetection from "vue-mobile-detection";
+Vue.use(VueMobileDetection);
+
 import router from '@/router';
 import store from '@/store';
-import { appInfo } from '@/constants';
+import globals from '@/globals';
+import restful from '@/restful';
 
 new Vue({
-  router,
-  store,
-  render: h => h(App),
-  provide() {
-    return {
-      appInfo
-    };
-  }
+    router,
+    store,
+    render: h => h(App),
+    data: {
+        eventBus: new Vue()
+    },
+    provide() {
+        return {
+            globals,
+            restful,
+            eventBus: this.eventBus
+        };
+    }
 }).$mount('#app');

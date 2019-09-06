@@ -1,15 +1,9 @@
 <template>
     <div id="app-sidebar-left">
-        <h4 style="margin-top:20px">
-            <b>TOP CREATOR</b>
-        </h4>
         <b-list-group>
-            <b-list-group-item v-for="creator in creatorPopuler" v-bind:key="creator.name" button>
+            <b-list-group-item v-for="creator in creatorPopuler" v-bind:key="creator.index" button>
                 <b-container style="padding: 0px">
                     <b-row align-v="center">
-                        <b-col cols="1">
-                            <strong>{{ creator.index }}</strong>
-                        </b-col>
                         <b-col cols="2">
                             <b-img
                                 blank="true"
@@ -20,10 +14,10 @@
                                 height="40px"
                             />
                         </b-col>
-                        <b-col cols="8">
+                        <b-col cols="10">
                             <b-container>
                                 <b-row>
-                                    <b-col>
+                                    <b-col class="creator-name">
                                         <span>{{ creator.name }}</span>
                                     </b-col>
                                 </b-row>
@@ -72,4 +66,10 @@ export default {
 };
 </script>
 
-<style lang="stylus" scoped></style>
+<style lang="stylus" scoped>
+.creator-name {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+</style>

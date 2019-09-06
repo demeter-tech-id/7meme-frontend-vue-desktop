@@ -7,10 +7,10 @@
 
 <script>
 export default {
-    data() {
-        return {
-            path: this.$route.path
-        };
+    computed: {
+        path() {
+            return this.$route.path;
+        }
     }
 };
 </script>
